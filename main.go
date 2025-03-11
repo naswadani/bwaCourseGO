@@ -21,6 +21,8 @@ func main() {
 	userRepository := user.NewRepository(db)
 	userService := user.NewService(userRepository)
 
+	userByEmail, err := userRepository.FindByEmail(" ")
+
 	userHandler := handler.NewUserHandler(userService)
 	router := gin.Default()
 	api := router.Group("/api/v1")
